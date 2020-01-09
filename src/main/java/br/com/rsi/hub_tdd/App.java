@@ -1,4 +1,4 @@
-package RSI.TDD;
+package br.com.rsi.hub_tdd;
 
 /**
  * Hello world!
