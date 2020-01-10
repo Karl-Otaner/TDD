@@ -2,13 +2,18 @@ package br.com.rsi.hub_tdd.steps;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestCadastroUsuario {
 
@@ -16,25 +21,31 @@ public class TestCadastroUsuario {
 
 	@Before
 
-	public void SetUp() throws InterruptedException {
+	public void SetUp() {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("http://advantageonlineshopping.com/#/");
-		Thread.sleep(4000);
+
 
 	}
 
 	@Test
-	public void testCadastraUsuario() throws InterruptedException {
+	public void testCadastraUsuario() {
+		
+		
 		driver.findElement(By.id("menuUserSVGPath")).click();
-		Thread.sleep(1000);
-//		driver.findElement(By.name("username")).sendKeys("Karl_Otaner2");
-//		Thread.sleep(1000);
-//		driver.findElement(By.name("password")).sendKeys("123456");
-//		Thread.sleep(1000);
-		driver.findElement(By.linkText("CREATE NEW ACCOUNT")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement espera = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("CREATE NEW ACCOUNT")));
+		espera.sendKeys(Keys.ENTER);
+		
+		
 
+
+		
+//		driver.findElement(By.linkText("CREATE NEW ACCOUNT")).click();
+		
+		
 		driver.findElement(By.name("usernameRegisterPage")).sendKeys("Karl_Otaner4");
 
 		driver.findElement(By.name("emailRegisterPage")).sendKeys("carlos.silva@rsinet.com.br");
@@ -64,10 +75,9 @@ public class TestCadastroUsuario {
 
 		driver.findElement(By.id("register_btnundefined")).click();
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("javascript:window.scrollBy(0,200)");
-
-		Thread.sleep(2000);
+	}
+	@After
+	public void tearDown() {
 		driver.close();
 
 	}
