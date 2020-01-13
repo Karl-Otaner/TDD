@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import br.com.rsi.hub_tdd.steps.appModulos.SignIn_Action;
+import br.com.rsi.hub_tdd.steps.home_page.HomePage;
 
 public class Module {
 	private static WebDriver driver;
@@ -21,7 +22,7 @@ public class Module {
 		
 		SignIn_Action.Execute(driver);
 		
-//		HomePage.lnk_MyAccount(driver).click();
+		HomePage.lnk_MyAccount(driver).click();
 		
 		System.out.println("Login efetuado com sucesso, Agora vamos as compras!");
 //		driver.quit();
