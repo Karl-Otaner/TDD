@@ -2,9 +2,13 @@ package br.com.rsi.hub_tdd.steps;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.xmlbeans.impl.common.GenericXmlInputStream;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -15,9 +19,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+import br.com.rsi.hub_tdd.steps.home_page.HomePage;
+
 public class TestCadastroUsuario {
 
 	private static WebDriver driver;
+
+	@Rule
+	public TestName test = new TestName();
 
 	@Before
 
@@ -27,26 +37,19 @@ public class TestCadastroUsuario {
 		driver.manage().window().maximize();
 		driver.get("http://advantageonlineshopping.com/#/");
 
-
 	}
 
 	@Test
 	public void testCadastraUsuario() {
-		
-		
-		driver.findElement(By.id("menuUserSVGPath")).click();
+
+		HomePage.lnk_MyAccount(driver).click();
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		WebElement espera = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("CREATE NEW ACCOUNT")));
 		espera.sendKeys(Keys.ENTER);
-		
-		
 
-
-		
 //		driver.findElement(By.linkText("CREATE NEW ACCOUNT")).click();
-		
-		
-		driver.findElement(By.name("usernameRegisterPage")).sendKeys("Karl_Otaner4");
+
+		driver.findElement(By.name("usernameRegisterPage")).sendKeys("Karl_Otaner9");
 
 		driver.findElement(By.name("emailRegisterPage")).sendKeys("carlos.silva@rsinet.com.br");
 
@@ -74,11 +77,20 @@ public class TestCadastroUsuario {
 		driver.findElement(By.name("i_agree")).click();
 
 		driver.findElement(By.id("register_btnundefined")).click();
+		
+		boolean displayed = driver.findElement(By.xpath("//span[@class='hi-user containMiniTitle ng-binding']")).isDisplayed();
+		System.out.println(displayed);					
+		Assert.assertTrue(displayed);
+		String screenshortArquivo = "C:\\Users\\carlos.silva\\ToolsQA\\TDD\\TDD\\Screenshort/"
+				+ Generator.dataHorParaArquvio() + test.getMethodName() +".png";
+		Screenshort.printTela(driver, screenshortArquivo);
+
 
 	}
+
 	@After
 	public void tearDown() {
-		driver.close();
+//		driver.close();
 
 	}
 }
