@@ -13,10 +13,10 @@ public class PageObjectModel {
 
 	public void testCadastraUsuario() {
 
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.get("http://advantageonlineshopping.com/#/");
+//		driver = new ChromeDriver();
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		driver.manage().window().maximize();
+//		driver.get("http://advantageonlineshopping.com/#/");
 		
 		HomePage.lnk_MyAccount(driver).click();
 //		NewUser.txtbx_UserName(driver).sendKeys("Karl_Otaner2");
