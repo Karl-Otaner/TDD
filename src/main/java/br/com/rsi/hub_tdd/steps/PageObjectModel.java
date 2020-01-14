@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import br.com.rsi.hub_tdd.steps.home_page.HomePage;
-import br.com.rsi.hub_tdd.steps.home_page.NewUser;
+import br.com.rsi.hub_tdd.steps.login_page.NewUserPage;
 
 public class PageObjectModel {
 	private static WebDriver driver;
@@ -21,7 +21,7 @@ public class PageObjectModel {
 		HomePage.lnk_MyAccount(driver).click();
 //		NewUser.txtbx_UserName(driver).sendKeys("Karl_Otaner2");
 //		NewUser.txtbx_Password(driver).sendKeys("Aa123456");
-		NewUser.btn_NewUser(driver).click();
+		NewUserPage.btn_NewUser(driver).click();
 		
 		System.out.println("Login efetuado com sucesso, Agora vamos as compras!");
 		
