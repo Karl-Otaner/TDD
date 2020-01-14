@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class HomePage {
+public class Web {
+//	 static WebElement element;
+	
 	public static WebDriver acessChrome() {
 		System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -17,24 +19,16 @@ public class HomePage {
 		
 		return driver;
 	}
-	
-	
-	
-	
-	
-	
-	
-		private static WebElement element = null;
-	
-	public static WebElement lnk_MyAccount(WebDriver driver) {
-		element = driver.findElement(By.id("menuUser"));
-		return element;
-	}
-//	public static WebElement lnk_LogOut(WebDriver driver) {
-//		
-//		element = driver.findElement(By.id("loginMiniTitle"));
-//		driver.findElement(By.className("Sign out")).click();
-//		
+	 
+	 
+	 
+//	public static WebElement clickUser(WebDriver driver) {
+//		element = driver.findElement(By.id("menuUser"));
+//		return element;
+//	}
+//	
+//	public static WebElement clickNewAccount(WebDriver driver) {
+//		element = driver.findElement(By.linkText("CREATE NEW ACCOUNT"));
 //		return element;
 //	}
 	
