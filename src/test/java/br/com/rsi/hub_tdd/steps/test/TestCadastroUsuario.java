@@ -1,8 +1,7 @@
-package br.com.rsi.hub_tdd.steps;
+package br.com.rsi.hub_tdd.steps.test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.apache.xmlbeans.impl.common.GenericXmlInputStream;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,18 +9,20 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsi.hub_tdd.steps.Generator;
+import br.com.rsi.hub_tdd.steps.Screenshort;
 
-import br.com.rsi.hub_tdd.steps.home_page.Web;
-import br.com.rsi.hub_tdd.steps.login_page.HomePage;
+
+
+
+
+br.com.rsi.hub_tdd.steps.home_page.HomePage;
 
 public class TestCadastroUsuario {
 
@@ -43,12 +44,12 @@ public class TestCadastroUsuario {
 	@Test
 	public void testCadastraUsuario() {
 
-		HomePage.clickUser(driver).click();
+		br.com.rsi.hub_tdd.steps.home_page.HomePage.clickUser(driver).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement espera = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("CREATE NEW ACCOUNT")));
-		espera.sendKeys(Keys.ENTER);
+//		WebElement espera = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("CREATE NEW ACCOUNT")));
+//		espera.sendKeys(Keys.ENTER);
 
-//		driver.findElement(By.linkText("CREATE NEW ACCOUNT")).click();
+		driver.findElement(By.linkText("CREATE NEW ACCOUNT")).sendKeys(Keys.ENTER);
 
 		driver.findElement(By.name("usernameRegisterPage")).sendKeys("Karl_Otaner13");
 
