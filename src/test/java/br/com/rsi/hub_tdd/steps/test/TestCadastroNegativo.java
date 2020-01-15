@@ -1,16 +1,15 @@
 package br.com.rsi.hub_tdd.steps.test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
-import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsi.hub_tdd.steps.Generator;
 import br.com.rsi.hub_tdd.steps.Screenshort;
@@ -18,25 +17,26 @@ import br.com.rsi.hub_tdd.steps.FormAccount.NewUserInformation;
 import br.com.rsi.hub_tdd.steps.home_page.HomePage;
 import br.com.rsi.hub_tdd.steps.utility.Constant;
 import br.com.rsi.hub_tdd.steps.utility.ExcelUtils;
+import br.com.rsi.hub_tdd.steps.utility.MenssageTest;
 
-public class TestCadastro {
+public class TestCadastroNegativo {
 	private static ChromeDriver driver;
-	
+
 	@BeforeClass
 	public static void setUp() {
-	driver = new ChromeDriver();
-	driver.manage().window().maximize();
-	driver.get("http://advantageonlineshopping.com/");
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://advantageonlineshopping.com/");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-//	
+
 	@Test
 	public void TestNewAccont() throws Exception {
 		ExcelUtils.setExcelFile(Constant.Path_Cadastro + Constant.File_Cadastro, "Planilha1");
-		
+
 		HomePage.clickUser(driver).click();
 		HomePage.createNewAccount(driver).sendKeys(Keys.ENTER);
-		
+
 		NewUserInformation.registerName(driver).sendKeys(ExcelUtils.getCellData(1, 0));
 		NewUserInformation.registerEmail(driver).sendKeys(ExcelUtils.getCellData(1, 1));
 		NewUserInformation.registerPsw(driver).sendKeys(ExcelUtils.getCellData(1, 2));
@@ -51,22 +51,20 @@ public class TestCadastro {
 		NewUserInformation.postalRegister(driver).sendKeys(ExcelUtils.getCellData(1, 11));
 		NewUserInformation.iAgree(driver).click();
 		NewUserInformation.registerBtn(driver).click();
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("javascript:window.scrollBy(0,200)");
 		
-		wait.until(ExpectedConditions.urlToBe("http://advantageonlineshopping.com/#/"));
+		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
 		
-		assertEquals("http://advantageonlineshopping.com/#/", driver.getCurrentUrl());
-		
-		
+
+		assertEquals("User name already exists", MenssageTest.registeredUsere(driver).getText());
 		Screenshort.printTela(driver, Generator.dataHorParaArquvio());
 	}
-	
+
 	@After
 	public void tearDown() throws InterruptedException {
-	
 		driver.close();
-
 	}
-	
 
 }
