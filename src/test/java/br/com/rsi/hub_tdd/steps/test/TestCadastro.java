@@ -2,29 +2,36 @@ package br.com.rsi.hub_tdd.steps.test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
+import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsi.hub_tdd.steps.Generator;
+import br.com.rsi.hub_tdd.steps.Screenshort;
 import br.com.rsi.hub_tdd.steps.FormAccount.NewUserInformation;
 import br.com.rsi.hub_tdd.steps.home_page.HomePage;
 import br.com.rsi.hub_tdd.steps.utility.Constant;
 import br.com.rsi.hub_tdd.steps.utility.ExcelUtils;
 
 public class TestCadastro {
-	private static WebDriver driver;
+	private static ChromeDriver driver;
 	
-//	@Before
-//	public void setUp() {
-//	}
+	@BeforeClass
+	public static void setUp() {
+	driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("http://advantageonlineshopping.com/");
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
 //	
 	@Test
 	public void TestNewAccont() throws Exception {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("http://advantageonlineshopping.com/#/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		ExcelUtils.setExcelFile(Constant.Path_Cadastro + Constant.File_Cadastro, "Planilha1");
 		
 		HomePage.clickUser(driver).click();
@@ -44,7 +51,21 @@ public class TestCadastro {
 		NewUserInformation.postalRegister(driver).sendKeys(ExcelUtils.getCellData(1, 11));
 		NewUserInformation.iAgree(driver).click();
 		NewUserInformation.registerBtn(driver).click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
+		wait.until(ExpectedConditions.urlToBe("http://advantageonlineshopping.com/#/"));
+		
+		assertEquals("http://advantageonlineshopping.com/#/", driver.getCurrentUrl());
+		
+		
+		Screenshort.printTela(driver, Generator.dataHorParaArquvio());
+	}
+	
+	@After
+	public void tearDown() throws InterruptedException {
+	
+		driver.close();
+
 	}
 	
 

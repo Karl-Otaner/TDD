@@ -11,7 +11,7 @@ public class Screenshort {
 	public static void printTela(WebDriver driver, String arquivo) {
 		File screenshort = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(screenshort, new File(arquivo));
+			FileUtils.copyFile(screenshort, new File("C:\\Users\\carlos.silva\\ToolsQA\\TDD\\TDD\\Screenshort/" + Generator.dataHorParaArquvio()+".png"));
 			
 		} catch (Exception e) {
 			System.out.println("Houveram problemas ao copiar o arquivo para a pasta" + e.getMessage());

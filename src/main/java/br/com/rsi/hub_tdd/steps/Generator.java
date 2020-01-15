@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public class Generator {
 	public static String dataHorParaArquvio() {
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
-		return new SimpleDateFormat("yyyyMMddhhmmss").format(ts);
+		return new SimpleDateFormat("ddMMYYYYHHmmss").format(ts);
 		
 	}
 

@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -46,8 +47,8 @@ public class TestCadastroUsuario {
 
 		br.com.rsi.hub_tdd.steps.home_page.HomePage.clickUser(driver).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-//		WebElement espera = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("CREATE NEW ACCOUNT")));
-//		espera.sendKeys(Keys.ENTER);
+		WebElement espera = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("CREATE NEW ACCOUNT")));
+		espera.sendKeys(Keys.ENTER);
 
 		driver.findElement(By.linkText("CREATE NEW ACCOUNT")).sendKeys(Keys.ENTER);
 
