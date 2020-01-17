@@ -5,29 +5,33 @@ import static org.junit.Assert.assertEquals;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import br.com.rsi.hub_tdd.steps.Generator;
 import br.com.rsi.hub_tdd.steps.Screenshort;
 import br.com.rsi.hub_tdd.steps.FormAccount.NewUserInformation;
+import br.com.rsi.hub_tdd.steps.home_page.GoToWeb;
 import br.com.rsi.hub_tdd.steps.home_page.HomePage;
 import br.com.rsi.hub_tdd.steps.utility.Constant;
 import br.com.rsi.hub_tdd.steps.utility.ExcelUtils;
 import br.com.rsi.hub_tdd.steps.utility.MenssageTest;
 
 public class TestCadastroNegativo {
-	private static ChromeDriver driver;
+	private static WebDriver driver;
 
 	@BeforeClass
 	public static void setUp() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("http://advantageonlineshopping.com/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver = GoToWeb.abreSite();
+//		driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+//		driver.get("http://advantageonlineshopping.com/");
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@Test
@@ -64,7 +68,7 @@ public class TestCadastroNegativo {
 
 	@After
 	public void tearDown() throws InterruptedException {
-		driver.close();
+		GoToWeb.fechaSite(driver);
 	}
 
 }

@@ -13,5 +13,9 @@ public class MenssageTest {
 		element = driver.findElement(By.xpath("//*[@id=\"registerPage\"]/article/sec-form/div[2]/label[1]"));
 		return element;
 	}
-
+	
+	public static WebElement productNotFound(WebDriver driver) {
+	element = driver.findElement(By.id("searchResultLabel"));
+	return element;
+}
 }

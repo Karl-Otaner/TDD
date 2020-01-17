@@ -1,13 +1,14 @@
 package br.com.rsi.hub_tdd.steps.test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
-import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,25 +16,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import br.com.rsi.hub_tdd.steps.Generator;
 import br.com.rsi.hub_tdd.steps.Screenshort;
 import br.com.rsi.hub_tdd.steps.FormAccount.NewUserInformation;
+import br.com.rsi.hub_tdd.steps.home_page.GoToWeb;
 import br.com.rsi.hub_tdd.steps.home_page.HomePage;
 import br.com.rsi.hub_tdd.steps.utility.Constant;
 import br.com.rsi.hub_tdd.steps.utility.ExcelUtils;
 
 public class TestCadastroPositivo {
-	private static ChromeDriver driver;
+	private static WebDriver driver;
 
 	@BeforeClass
 	public static void setUp() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("http://advantageonlineshopping.com/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		driver = GoToWeb.abreSite();
 	}
 
 	@Test
 	public void TestNewAccont() throws Exception {
 		ExcelUtils.setExcelFile(Constant.Path_Cadastro + Constant.File_Cadastro, "Planilha1");
 
+//		GoToWeb.IrSite(driver);
+
+//		WebDriverWait wait = new WebDriverWait(driver, 10);
+//		wait.until(ExpectedConditions.elementToBeClickable(HomePage.clickUser(driver)));
+//		Thread.sleep(2000);
 		HomePage.clickUser(driver).click();
 		HomePage.createNewAccount(driver).sendKeys(Keys.ENTER);
 
@@ -52,17 +57,18 @@ public class TestCadastroPositivo {
 		NewUserInformation.iAgree(driver).click();
 		NewUserInformation.registerBtn(driver).click();
 		
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.urlToBe("http://advantageonlineshopping.com/#/"));
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(HomePage.imagemHome(driver)));
 
-		assertEquals("http://advantageonlineshopping.com/#/", driver.getCurrentUrl());
+		assertEquals("http://www.advantageonlineshopping.com/#/", driver.getCurrentUrl());
 
 		Screenshort.printTela(driver, Generator.dataHorParaArquvio());
 	}
 
 	@After
-	public void tearDown() throws InterruptedException {
-		driver.close();
+	public void tearDown() {
+//		driver.close()
+		GoToWeb.fechaSite(driver);
 	}
 
 }
