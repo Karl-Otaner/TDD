@@ -1,11 +1,11 @@
-package br.com.rsi.hub_tdd.steps.FormAccount;
+package br.com.rsi.hub_tdd.steps.PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class NewUserInformation {
+public class DadosParaCadastroNovoUsuario {
 	private WebDriver driver;
 
 	private static WebElement element;

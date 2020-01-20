@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.utility;
+package br.com.rsi.hub_tdd.steps.excel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +14,8 @@ public class MenssageTest {
 		return element;
 	}
 	
-	public static WebElement productNotFound(WebDriver driver) {
-	element = driver.findElement(By.id("searchResultLabel"));
+	public static WebElement produtoLocalizado(WebDriver driver) {
+	element = driver.findElement(By.partialLinkText("HP PRO TABLET 608 G1"));
 	return element;
 }
 }

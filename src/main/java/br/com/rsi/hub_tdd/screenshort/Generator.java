@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps;
+package br.com.rsi.hub_tdd.screenshort;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
