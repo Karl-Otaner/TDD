@@ -1,36 +1,46 @@
-package br.com.rsi.hub_tdd.steps.test.negativo;
+package br.com.rsi.hub_tdd.steps.test.positivo;
 
 import static org.junit.Assert.assertEquals;
 
-import org.openqa.selenium.JavascriptExecutor;
+import java.io.IOException;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import br.com.rsi.hub_tdd.screenshort.Generator;
 import br.com.rsi.hub_tdd.screenshort.Screenshort;
 import br.com.rsi.hub_tdd.steps.PageObject.DadosParaCadastroNovoUsuario;
 import br.com.rsi.hub_tdd.steps.excel.Constant;
 import br.com.rsi.hub_tdd.steps.excel.ExcelUtils;
-import br.com.rsi.hub_tdd.steps.excel.MenssageTest;
 import br.com.rsi.hub_tdd.steps.home_page.HomePage;
 import br.com.rsi.hub_tdd.steps.home_page.IrParaHomePage;
 
-public class TestCadastroUsuarioJaCadastrado {
+public class TestCadastroNovoUsuarioSucesso {
 	private static WebDriver driver;
+	static ExtentReports extent;
+	static ExtentTest logger;
+	static ExtentHtmlReporter reporter;
 
 	@BeforeMethod
 	public static void setUp() {
+		
 		driver = IrParaHomePage.abreSite();
-
+		
 	}
 
 	@Test
-	public void testCadastroUsuarioJaCadastrado() throws Exception {
+	public void testCadastroNovoUsuarioSucesso() throws Exception {
+		
 		ExcelUtils.setExcelFile(Constant.Path_Cadastro + Constant.File_Cadastro, "Planilha1");
-
 		HomePage.clickUser(driver).click();
 		HomePage.createNewAccount(driver).sendKeys(Keys.ENTER);
 
@@ -49,18 +59,20 @@ public class TestCadastroUsuarioJaCadastrado {
 		DadosParaCadastroNovoUsuario.iAgree(driver).click();
 		DadosParaCadastroNovoUsuario.registerBtn(driver).click();
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("javascript:window.scrollBy(0,200)");
-		
-		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
-		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(HomePage.imagemHome(driver)));
 
-		assertEquals("User name already exists", MenssageTest.registeredUsere(driver).getText());
+		assertEquals("http://www.advantageonlineshopping.com/#/", driver.getCurrentUrl());
+		
 		Screenshort.printTela(driver, Generator.dataHorParaArquvio());
+//		GeradorCadastroSucesso.relatorioCadastroComSucesso();
+
 	}
 
 	@AfterMethod
-	public void tearDown() throws InterruptedException {
+	public void tearDown() throws IOException {
+//		driver.close()
+
 		IrParaHomePage.fechaSite(driver);
 	}
 

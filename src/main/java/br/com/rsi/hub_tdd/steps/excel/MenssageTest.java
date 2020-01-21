@@ -18,4 +18,8 @@ public class MenssageTest {
 	element = driver.findElement(By.partialLinkText("HP PRO TABLET 608 G1"));
 	return element;
 }
+	public static WebElement outroProdutoLocalizado(WebDriver driver) {
+		element = driver.findElement(By.partialLinkText("HP CHROMEBOOK 14 G1(ES)"));
+		return element;
+	}
 }

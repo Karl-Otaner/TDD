@@ -1,6 +1,7 @@
 package br.com.rsi.hub_tdd.screenshort;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,15 +12,23 @@ import com.aventstack.extentreports.utils.FileUtil;
 
 public class ScreenRelatorio {
 
-	public static void screenShortRelatorio(WebDriver driver) {
-		File screenshort = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(screenshort, new File("C:\\Users\\carlos.silva\\ToolsQA\\TDD\\TDD\\Screenshort/"
-					+ Generator.dataHorParaArquvio() + ".png"));
-
-		} catch (Exception e) {
-			System.out.println("Houveram problemas ao copiar o arquivo para a pasta" + e.getMessage());
-
+	 public static String fotoRelatorio (WebDriver driver) {
+		 TakesScreenshot ts=(TakesScreenshot) driver;
+			
+			File src=ts.getScreenshotAs(OutputType.FILE);
+			
+			String path=System.getProperty("user.dir")+"/Screenshot/"+System.currentTimeMillis()+".png";
+			
+			File destination=new File(path);
+			
+			try 
+			{
+				FileUtils.copyFile(src, destination);
+			} catch (IOException e) 
+			{
+				System.out.println("Capture Failed "+e.getMessage());
+			}
+			
+			return path;
 		}
-	}
 }

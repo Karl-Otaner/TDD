@@ -38,8 +38,13 @@ public class HomePage {
 		element = driver.findElement(By.xpath("/html/body/header/nav/ul/li[4]/a/div/div[2]/div/div[2]/a[2]/img"));
 		return element;
 	}
+	
 	public static WebElement produtoDaTelaPrincipal(WebDriver driver) {
 		element = driver.findElement(By.id("tabletsImg"));
+		return element;
+	}
+	public static WebElement outroProdutoDaTelaPrincipal(WebDriver driver) {
+		element = driver.findElement(By.id("details_10"));
 		return element;
 	}
 
