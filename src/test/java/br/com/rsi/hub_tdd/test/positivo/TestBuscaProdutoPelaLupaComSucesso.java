@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.test.positivo;
+package br.com.rsi.hub_tdd.test.positivo;
 
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -7,12 +7,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsi.hub_tdd.PageObject.HomePage;
+import br.com.rsi.hub_tdd.PageObject.IrParaHomePage;
+import br.com.rsi.hub_tdd.excel.Constant;
+import br.com.rsi.hub_tdd.excel.ExcelUtils;
 import br.com.rsi.hub_tdd.screenshort.Generator;
 import br.com.rsi.hub_tdd.screenshort.Screenshort;
-import br.com.rsi.hub_tdd.steps.excel.Constant;
-import br.com.rsi.hub_tdd.steps.excel.ExcelUtils;
-import br.com.rsi.hub_tdd.steps.home_page.HomePage;
-import br.com.rsi.hub_tdd.steps.home_page.IrParaHomePage;
 
 
 public class TestBuscaProdutoPelaLupaComSucesso {

@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.home_page;
+package br.com.rsi.hub_tdd.PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

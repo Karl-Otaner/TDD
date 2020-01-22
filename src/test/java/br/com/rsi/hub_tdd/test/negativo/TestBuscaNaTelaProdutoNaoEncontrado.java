@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.test.negativo;
+package br.com.rsi.hub_tdd.test.negativo;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -10,12 +10,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import br.com.rsi.hub_tdd.PageObject.BuscaProduto;
+import br.com.rsi.hub_tdd.PageObject.HomePage;
+import br.com.rsi.hub_tdd.PageObject.IrParaHomePage;
+import br.com.rsi.hub_tdd.excel.MenssageTest;
 import br.com.rsi.hub_tdd.screenshort.Generator;
 import br.com.rsi.hub_tdd.screenshort.Screenshort;
-import br.com.rsi.hub_tdd.steps.PageObject.BuscaProduto;
-import br.com.rsi.hub_tdd.steps.excel.MenssageTest;
-import br.com.rsi.hub_tdd.steps.home_page.HomePage;
-import br.com.rsi.hub_tdd.steps.home_page.IrParaHomePage;
 
 public class TestBuscaNaTelaProdutoNaoEncontrado {
 	private static WebDriver driver;

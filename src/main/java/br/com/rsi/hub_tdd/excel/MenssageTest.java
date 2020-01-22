@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.excel;
+package br.com.rsi.hub_tdd.excel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

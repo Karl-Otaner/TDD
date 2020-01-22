@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.test.positivo;
+package br.com.rsi.hub_tdd.test.positivo;
 
 import static org.junit.Assert.*;
 
@@ -9,14 +9,14 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import br.com.rsi.hub_tdd.PageObject.BuscaProduto;
+import br.com.rsi.hub_tdd.PageObject.HomePage;
+import br.com.rsi.hub_tdd.PageObject.IrParaHomePage;
+import br.com.rsi.hub_tdd.excel.Constant;
+import br.com.rsi.hub_tdd.excel.ExcelUtils;
+import br.com.rsi.hub_tdd.excel.MenssageTest;
 import br.com.rsi.hub_tdd.screenshort.Generator;
 import br.com.rsi.hub_tdd.screenshort.Screenshort;
-import br.com.rsi.hub_tdd.steps.PageObject.BuscaProduto;
-import br.com.rsi.hub_tdd.steps.excel.Constant;
-import br.com.rsi.hub_tdd.steps.excel.ExcelUtils;
-import br.com.rsi.hub_tdd.steps.excel.MenssageTest;
-import br.com.rsi.hub_tdd.steps.home_page.HomePage;
-import br.com.rsi.hub_tdd.steps.home_page.IrParaHomePage;
 
 public class TestBuscarProdutoNaTelaPrincipal {
 	private static WebDriver driver;

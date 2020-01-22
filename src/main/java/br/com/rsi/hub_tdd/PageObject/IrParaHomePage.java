@@ -1,4 +1,4 @@
-package br.com.rsi.hub_tdd.steps.home_page;
+package br.com.rsi.hub_tdd.PageObject;
 
 import java.util.concurrent.TimeUnit;
 

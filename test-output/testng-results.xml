@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14840" started-at="2020-01-21T13:49:38 BRT" finished-at="2020-01-21T13:49:53 BRT">
+  <suite name="Default suite" duration-ms="18464" started-at="2020-01-21T15:50:58 BRT" finished-at="2020-01-21T15:51:17 BRT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14840" started-at="2020-01-21T13:49:38 BRT" finished-at="2020-01-21T13:49:53 BRT">
-      <class name="br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaProdutoPelaLupaNaoEncontrado">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaProdutoPelaLupaNaoEncontrado@1c3a4799]" name="setUp" is-config="true" duration-ms="10780" started-at="2020-01-21T13:49:38 BRT" finished-at="2020-01-21T13:49:49 BRT">
+    <test name="Default test" duration-ms="18464" started-at="2020-01-21T15:50:58 BRT" finished-at="2020-01-21T15:51:17 BRT">
+      <class name="br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaNaTelaProdutoNaoEncontrado">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaNaTelaProdutoNaoEncontrado@1c3a4799]" name="setUp" is-config="true" duration-ms="15308" started-at="2020-01-21T15:50:58 BRT" finished-at="2020-01-21T15:51:13 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testBuscaProdutoPelaLupaNaoEncontrado()[pri:0, instance:br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaProdutoPelaLupaNaoEncontrado@1c3a4799]" name="testBuscaProdutoPelaLupaNaoEncontrado" duration-ms="3412" started-at="2020-01-21T13:49:49 BRT" finished-at="2020-01-21T13:49:52 BRT">
+        <test-method status="PASS" signature="testBuscaNaTelaProdutoNaoEncontrado()[pri:0, instance:br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaNaTelaProdutoNaoEncontrado@1c3a4799]" name="testBuscaNaTelaProdutoNaoEncontrado" duration-ms="2531" started-at="2020-01-21T15:51:13 BRT" finished-at="2020-01-21T15:51:16 BRT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testBuscaProdutoPelaLupaNaoEncontrado -->
-        <test-method status="PASS" signature="Close()[pri:0, instance:br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaProdutoPelaLupaNaoEncontrado@1c3a4799]" name="Close" is-config="true" duration-ms="623" started-at="2020-01-21T13:49:52 BRT" finished-at="2020-01-21T13:49:53 BRT">
+        </test-method> <!-- testBuscaNaTelaProdutoNaoEncontrado -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaNaTelaProdutoNaoEncontrado@1c3a4799]" name="tearDown" is-config="true" duration-ms="601" started-at="2020-01-21T15:51:16 BRT" finished-at="2020-01-21T15:51:17 BRT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Close -->
-      </class> <!-- br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaProdutoPelaLupaNaoEncontrado -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- br.com.rsi.hub_tdd.steps.test.negativo.TestBuscaNaTelaProdutoNaoEncontrado -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
