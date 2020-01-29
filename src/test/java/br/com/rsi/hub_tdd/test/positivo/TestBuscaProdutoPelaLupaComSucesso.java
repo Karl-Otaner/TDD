@@ -1,11 +1,11 @@
 package br.com.rsi.hub_tdd.test.positivo;
 
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import br.com.rsi.hub_tdd.PageObject.HomePage;
 import br.com.rsi.hub_tdd.PageObject.IrParaHomePage;
@@ -18,7 +18,7 @@ import br.com.rsi.hub_tdd.screenshort.Screenshort;
 public class TestBuscaProdutoPelaLupaComSucesso {
 	private static WebDriver driver;
 	
-	@BeforeClass
+	@BeforeMethod
 	public static void setUp() {
 		driver = IrParaHomePage.abreSite();
 		IrParaHomePage.aguardeElemento();
@@ -40,7 +40,7 @@ public class TestBuscaProdutoPelaLupaComSucesso {
 		
 	}
 
-	@After
+	@AfterMethod
 	
 	public void Close() {
 		IrParaHomePage.fechaSite(driver);	

@@ -34,6 +34,7 @@ public class TestCadastroNovoUsuarioSucesso {
 	public static void setUp() {
 		
 		driver = IrParaHomePage.abreSite();
+
 		
 	}
 
@@ -41,6 +42,7 @@ public class TestCadastroNovoUsuarioSucesso {
 	public void testCadastroNovoUsuarioSucesso() throws Exception {
 		
 		ExcelUtils.setExcelFile(Constant.Path_Cadastro + Constant.File_Cadastro, "Planilha1");
+		
 		HomePage.clickUser(driver).click();
 		HomePage.createNewAccount(driver).sendKeys(Keys.ENTER);
 
